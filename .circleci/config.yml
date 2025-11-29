@@ -1,5 +1,14 @@
 version: 2.1
 
+commands:
+  install_docker_cli:
+    steps:
+      - run:
+          name: Install Docker CLI
+          command: |
+            apt-get update
+            apt-get install -y docker.io
+
 executors:
   docker-executor:
     docker:
@@ -17,6 +26,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+      - install_docker_cli
       - run:
           name: Authenticate with google cloud
           command: |
@@ -35,6 +45,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+      - install_docker_cli
       - run:
           name: Authenticate with google cloud
           command: |
