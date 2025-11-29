@@ -63,7 +63,3 @@ workflows:
       - deploy_to_gke:
           requires:
             - build_docker_image
-              
-              
-
-              us-central1-docker.pkg.dev/snappy-gantry-475314-u1/
